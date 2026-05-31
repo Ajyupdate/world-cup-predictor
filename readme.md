@@ -1,1 +1,2 @@
+31/05/2026
 Version 1 focuses on building the foundation of a football match prediction system. Historical match data is processed through an ELO rating engine to quantify team strength over time. These ELO ratings are transformed into machine-learning features and used to train a Logistic Regression model. The current system can learn from past matches and generate basic win, draw, or loss predictions based on team ELO differences.
