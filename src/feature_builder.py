@@ -43,7 +43,7 @@ def build_features(df):
 
     return pd.DataFrame(rows)
 
-df = pd.read_csv(DATA_DIR / "matches.csv")
+df = pd.read_csv(DATA_DIR / "results.csv")
 features_df = build_features(df)
 
 features_df.to_csv(DATA_DIR / "features.csv", index=False)
