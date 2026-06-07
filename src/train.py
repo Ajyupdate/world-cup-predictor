@@ -34,7 +34,9 @@ feature_columns = [
     "home_draws",
     "away_draws",
     "home_losses",
-    "away_losses"
+    "away_losses",
+    "home_advantage",
+    "tournament_importance"
 ]
 X = df[feature_columns]
 
