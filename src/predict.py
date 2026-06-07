@@ -37,7 +37,10 @@ sample_match = pd.DataFrame([{
     "away_draws": 1,
 
     "home_losses": 1,
-    "away_losses": 2
+    "away_losses": 2,
+
+    "home_advantage": 1,
+    "tournament_importance": 5
 
 }])
 # prediction = model.predict(sample_match)

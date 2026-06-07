@@ -6,6 +6,24 @@ from elo import EloRatingSystem
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
+TOURNAMENT_WEIGHTS = {
+    "Friendly": 1.0,
+
+    "UEFA NATIONS LEAGUE": 2,
+
+    "World Cup qualification": 3,
+
+    "UEFA Euro qualification": 3,
+
+    "Copa America": 4,
+
+    "UEFA Euro": 4,
+
+    "FIFA World Cup": 5
+}
+
+def get_tournament_importance(tournament):
+    return TOURNAMENT_WEIGHTS.get(tournament, 2)
 def calculate_form(history):
     """
     Calculate recent form statistics from the last N matches
@@ -93,6 +111,10 @@ def build_features(df):
         home_form = calculate_form(team_histories[home_team])
         away_form = calculate_form(team_histories[away_team])
 
+        neutral = row["neutral"]
+        home_advantage = 0 if neutral else 1
+
+        importance = get_tournament_importance(row["tournament"])
         #TARGET (only if match played)
 
         target = get_result(home_score, away_score) if is_played else None
@@ -128,7 +150,9 @@ def build_features(df):
             "away_wins": away_form["wins"],
             "away_draws": away_form["draws"],
             "away_losses": away_form["losses"],
-
+            "home_advantage": home_advantage,
+            "tournament_importance": importance,
+            
             "target": target
 
         })
