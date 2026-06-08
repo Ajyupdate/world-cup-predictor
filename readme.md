@@ -8,3 +8,6 @@ In version 2, the pipeline was made time-aware: feature_builder.py now ignores f
 
 07/06/2026
 In version 3, the features were improved by adding home advantage and tournament importance
+
+08/06/2026
+Version 4, XgBoost was intoduced, it didn't make the model significantly better.
